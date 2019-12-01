@@ -8,9 +8,11 @@
 
 ### API
 * GitHub Jobs API 
+* Node fetch API
 
 ### worker
 * CRON https://www.npmjs.com/package/cron
 
 ### backend
-* Node fetch library
+* Redis to store data 
+* node client to access redis https://github.com/NodeRedis/node_redis

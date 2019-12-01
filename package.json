@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ch264/job-board#readme",
   "dependencies": {
     "cron": "^1.7.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "redis": "^2.8.0"
   }
 }
