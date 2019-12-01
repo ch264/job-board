@@ -18,6 +18,7 @@ const getAsync = promisify(client.get).bind(client);
 // convert route to async function
 app.get('/jobs', async (req, res) => {
 	const jobs = await getAsync('github');
+	res.header("Access-Control-Allow-Headers", "http://localhost:3000") // allow CORS
 	return res.send(jobs)
 })
 
