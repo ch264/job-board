@@ -7,6 +7,18 @@ const express = require('express')
 const app = express()
 const port = 3001 // frontend is running at 3000 so change
 
-app.get('/jobs', (req, res) => res.send('Hello World!'))
+// include redis instance
+var redis = require("redis"), client = redis.createClient();
+// converting a get to a promise 
+const {promisify} = require('util');
+const getAsync = promisify(client.get).bind(client);
+
+
+
+// convert route to async function
+app.get('/jobs', async (req, res) => {
+	const jobs = await getAsync('github');
+	return res.send(jobs)
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

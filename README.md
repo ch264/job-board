@@ -5,7 +5,7 @@
 ### Frontend
 * React - with create-react-app
 * Material UI API https://material-ui.com/getting-started/installation/
-* Express 
+* Express.js https://expressjs.com/en/starter/hello-world.html
 
 ### API
 * GitHub Jobs API 
