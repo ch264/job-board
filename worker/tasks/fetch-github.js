@@ -30,7 +30,24 @@ async function fetchGithub() {
 	}
 	console.log('got', allJobs.length, 'jobs total')
 
-	// set in redis
+
+	// filter response to only keys that we want
+	const jrJobs = allJobs.filter(job => {
+		const jobTitle = job.title.toLowerCase();
+
+		if (
+			jobTitle.includes('senior') || 
+			jobTitle.includes('manager') || 
+			jobTitle.includes('sr.') || 
+			jobTitle.includes('architect')
+		) {
+			return false;
+		}
+		return true;
+	});
+	console.log('filtered jobs', jrJobs.length )
+
+	// set response in redis under 'github'. To call in redis type: 'get github' in terminal
 	const success = await setAsync('github', JSON.stringify(allJobs));
 	
 	console.log({success})
