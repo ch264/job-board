@@ -4,20 +4,19 @@ import Jobs from './Jobs'
 // hold state
 
 // mock json that we might return from out API
-// const mockJobs = [
-//   {title: 'SWE 1', company: 'Google'},
-//   {title: 'SWE 1', company: 'Apple'},
-//   {title: 'SWE 1', company: 'Twitter'}
-// ]
+const mockJobs = [
+  {title: 'SWE 1', company: 'Google'},
+  {title: 'SWE 1', company: 'Apple'},
+  {title: 'SWE 1', company: 'Twitter'}
+]
 
-const JOB_API_URL = 'curl http://localhost:3001/jobs'
+const JOB_API_URL = 'http://localhost:3001/jobs'
 
-async function fetchJobs() {
+async function fetchJobs(updateJobs) {
   const res = await fetch(JOB_API_URL);
-  const json = await res.json();
-
+  let json = await res.json();
   console.log(json)
-}
+};
 
 function App() {
   const [jobsList, updateJobs] = React.useState([]);
